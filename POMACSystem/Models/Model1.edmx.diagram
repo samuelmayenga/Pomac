@@ -49,7 +49,6 @@
         <EntityTypeShape EntityType="PomacDBModel.Tribe" Width="1.5" PointX="0.75" PointY="44.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.Victim" Width="1.5" PointX="13.5" PointY="23.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.VitalStatu" Width="1.5" PointX="19.5" PointY="36" IsExpanded="true" />
-        <EntityTypeShape EntityType="PomacDBModel.Appeal" Width="1.5" PointX="7.5" PointY="76.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.Recommendation" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="PomacDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
@@ -85,7 +84,6 @@
         <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_MaritalStatus" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Nationality" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_NextOfKins" ManuallyRouted="false" />
-        <AssociationConnector Association="PomacDBModel.FK_Appeals_PetitionDetails" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_PetitionDetails_PetitionerDetails" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_PetitionDetails_Reliefs" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_PreviousConvictions_PetitionDetails" ManuallyRouted="false" />
@@ -106,6 +104,8 @@
         <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Locations" />
         <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_SubCounties" />
         <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Sublocation" />
+        <EntityTypeShape EntityType="PomacDBModel.Appeal" Width="1.5" PointX="7.5" PointY="38.75" />
+        <AssociationConnector Association="PomacDBModel.FK_Appeals_PetitionDetails" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

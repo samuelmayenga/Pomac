@@ -342,7 +342,6 @@
     <NavigationProperty Name="DisciplinaryActions" Relationship="Self.FK_DisciplinaryActions_PetitionDetails" FromRole="PetitionDetails" ToRole="DisciplinaryActions" />
     <NavigationProperty Name="HearingSummaries" Relationship="Self.FK_HearingSummary_PetitionDetails" FromRole="PetitionDetails" ToRole="HearingSummary" />
     <NavigationProperty Name="InterviewSummaries" Relationship="Self.FK_InterviewSummary_PetitionDetails" FromRole="PetitionDetails" ToRole="InterviewSummary" />
-    <NavigationProperty Name="Appeals" Relationship="Self.FK_Appeals_PetitionDetails" FromRole="PetitionDetails" ToRole="Appeals" />
     <NavigationProperty Name="PetitionerDetail" Relationship="Self.FK_PetitionDetails_PetitionerDetails" FromRole="PetitionDetails" ToRole="PetitionerDetails" />
     <NavigationProperty Name="Relief" Relationship="Self.FK_PetitionDetails_Reliefs" FromRole="PetitionDetails" ToRole="Reliefs" />
     <NavigationProperty Name="PreviousConvictions" Relationship="Self.FK_PreviousConvictions_PetitionDetails" FromRole="PetitionDetails" ToRole="PreviousConvictions" />
@@ -350,6 +349,7 @@
     <NavigationProperty Name="ProbatioAndAftercareServices" Relationship="Self.FK_ProbatioAndAftercareServices_PetitionDetails" FromRole="PetitionDetails" ToRole="ProbatioAndAftercareServices" />
     <NavigationProperty Name="Victims" Relationship="Self.FK_Victims_PetitionDetails" FromRole="PetitionDetails" ToRole="Victims" />
     <NavigationProperty Name="Victims1" Relationship="Self.FK_Victims_PetitionDetails1" FromRole="PetitionDetails" ToRole="Victims" />
+    <NavigationProperty Name="Appeals" Relationship="PomacDBModel.FK_Appeals_PetitionDetails" FromRole="PetitionDetail" ToRole="Appeal" />
   </EntityType>
   <EntityType Name="PetitionerDetail">
     <Key>
@@ -581,7 +581,7 @@
       <PropertyRef Name="ReliefID" />
     </Key>
     <Property Name="ReliefID" Type="Int32" Nullable="false" />
-    <Property Name="ReliefName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReliefName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PetitionDetails" Relationship="Self.FK_PetitionDetails_Reliefs" FromRole="Reliefs" ToRole="PetitionDetails" />
   </EntityType>
   <EntityType Name="Skill">
@@ -669,17 +669,6 @@
     <Property Name="VSId" Type="Int32" Nullable="false" />
     <Property Name="VitalStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="FamilyDetails" Relationship="Self.FK_FamilyDetails_VitalStatus" FromRole="VitalStatus" ToRole="FamilyDetails" />
-  </EntityType>
-  <EntityType Name="Appeal">
-    <Key>
-      <PropertyRef Name="AppealsID" />
-    </Key>
-    <Property Name="AppealsID" Type="Int32" Nullable="false" />
-    <Property Name="PetitionDetailsID" Type="Int32" />
-    <Property Name="AppealNumber" Type="Int32" />
-    <Property Name="AppealCaseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Outcome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_Appeals_PetitionDetails" FromRole="Appeals" ToRole="PetitionDetails" />
   </EntityType>
   <EntityType Name="Recommendation">
     <Key>
@@ -1105,18 +1094,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Appeals_PetitionDetails">
-    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
-    <End Role="Appeals" Type="Self.Appeal" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PetitionDetails">
-        <PropertyRef Name="PetitionDetailsID" />
-      </Principal>
-      <Dependent Role="Appeals">
-        <PropertyRef Name="PetitionDetailsID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_PetitionDetails_PetitionerDetails">
     <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="1" />
     <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="*" />
@@ -1334,7 +1311,6 @@
     <EntitySet Name="Tribes" EntityType="Self.Tribe" />
     <EntitySet Name="Victims" EntityType="Self.Victim" />
     <EntitySet Name="VitalStatus" EntityType="Self.VitalStatu" />
-    <EntitySet Name="Appeals" EntityType="Self.Appeal" />
     <EntitySet Name="Recommendations" EntityType="Self.Recommendation" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1472,10 +1448,6 @@
       <End Role="NextOfKins" EntitySet="NextOfKins" />
       <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
     </AssociationSet>
-    <AssociationSet Name="FK_Appeals_PetitionDetails" Association="Self.FK_Appeals_PetitionDetails">
-      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
-      <End Role="Appeals" EntitySet="Appeals" />
-    </AssociationSet>
     <AssociationSet Name="FK_PetitionDetails_PetitionerDetails" Association="Self.FK_PetitionDetails_PetitionerDetails">
       <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
       <End Role="PetitionDetails" EntitySet="PetitionDetails" />
@@ -1553,6 +1525,11 @@
       <End Role="Sublocation" EntitySet="Sublocations" />
       <End Role="PetitionerDetail" EntitySet="PetitionerDetails" />
     </AssociationSet>
+    <EntitySet Name="Appeals" EntityType="PomacDBModel.Appeal" />
+    <AssociationSet Name="FK_Appeals_PetitionDetails" Association="PomacDBModel.FK_Appeals_PetitionDetails">
+      <End Role="PetitionDetail" EntitySet="PetitionDetails" />
+      <End Role="Appeal" EntitySet="Appeals" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Role">
     <Key>
@@ -1606,6 +1583,29 @@
       </Principal>
       <Dependent Role="PetitionerDetail">
         <PropertyRef Name="SubLocation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Appeal">
+    <Key>
+      <PropertyRef Name="AppealsID" />
+    </Key>
+    <Property Name="AppealsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="AppealNumber" Type="Int32" />
+    <Property Name="AppealCaseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Outcome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionDetail" Relationship="PomacDBModel.FK_Appeals_PetitionDetails" FromRole="Appeal" ToRole="PetitionDetail" />
+  </EntityType>
+  <Association Name="FK_Appeals_PetitionDetails">
+    <End Type="PomacDBModel.PetitionDetail" Role="PetitionDetail" Multiplicity="0..1" />
+    <End Type="PomacDBModel.Appeal" Role="Appeal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetail">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="Appeal">
+        <PropertyRef Name="PetitionDetailsID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

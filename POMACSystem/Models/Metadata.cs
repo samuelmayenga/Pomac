@@ -15,6 +15,11 @@ namespace POMACSystem.Models
     {
     }
 
+    [MetadataType(typeof(PetitionDetailMetadata))]
+    public partial class PetitionDetail
+    {
+    }
+
     public class PetitionerDetailMetadata
     {
 
@@ -94,6 +99,107 @@ namespace POMACSystem.Models
         public string ContactPersonName { get; set; }
         [Display(Name = "Contact Person Phone")]
         public string ContactPersonPhone { get; set; }
+
+    }
+
+    public class PetitionDetailMetadata
+    {
+        public int PetitionDetailsID { get; set; }
+        public string UserId { get; set; }
+        public int PetitionerDetailsID { get; set; }
+
+        [StringLength(50)]
+        [Display(Name = "Court Case Number")]
+        public string CourtCaseNumber { get; set; }
+
+        [Display(Name = "Date of Conviction")]
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> DateOfConviction { get; set; }
+
+        [Display(Name = "Date of Offence")]
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> DateOfOffence { get; set; }
+
+
+        [StringLength(100)]
+        [Display(Name = "Place of Offence")]
+        public string PlaceOfOffence { get; set; }
+
+        [Display(Name = "Date of Arrest")]
+        [DataType(DataType.Date)]
+
+        public Nullable<System.DateTime> DateOfArrest { get; set; }
+
+        [Display(Name = "Date of Remand")]
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> DateOfRemand { get; set; }
+        [Display(Name = "Earliest Possible Date of Discharge")]
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> EarliestPossibleDateOfDischarge { get; set; }
+
+        [Display(Name = "Latest Possible Date of Discharge")]
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> LatestPossibleDateOfDischarge { get; set; }
+
+       
+        [Display(Name = "Trial Court")]
+        public Nullable<int> TrialCourt { get; set; }
+
+        [StringLength(100)]
+        [Display(Name = "Counts Implementation")]
+        public string CountsImplementation { get; set; }
+        public Nullable<bool> Resentenced { get; set; }
+
+       
+        [Display(Name = "Resentencing Outcome")]
+        public string ResentencingOutcome { get; set; }
+
+      
+        [Display(Name = "Pending Court Matter")]
+        public Nullable<bool> PendingCourtMatter { get; set; }
+
+       
+        [Display(Name = "Pending Court Matters Explanation")]
+        public string PendingCourtMattersExplanation { get; set; }
+
+        
+        [Display(Name = "Reliefs")]
+        public Nullable<int> ReliefsID { get; set; }
+        public string Skills { get; set; }
+
+        
+        [Display(Name = "Nature,Particulars and Circumstances Of Offence")]
+        public string NatureParticularsCircumstancesOfOffence { get; set; }
+
+        [Display(Name = "Previous Petitions")]
+        public Nullable<int> PreviousPetitions { get; set; }
+        public Nullable<bool> Trustee { get; set; }
+        [Display(Name = "Date Of Trustee Promotion")]
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> DateOfTrusteePromotion { get; set; }
+        public string Achievement { get; set; }
+        public string Attributes { get; set; }
+        [Display(Name = "Are you a Prisoner?")]
+        public Nullable<bool> AreYouPrisoner { get; set; }
+
+        [Display(Name = "Name Of Representative Or Advocate")]
+        public string NameOfRepresentativeOrAdvocate { get; set; }
+
+        [Display(Name = "Relationship With Convict")]
+        public string RelationshipWithConvict { get; set; }
+
+        
+        [Display(Name = "Phone Number")]
+        public string TelephoneNumber { get; set; }
+        [Display(Name = "ID Number/Passport No")]
+        public string IDNumber { get; set; }
+
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string EmailAddress { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
+        public Nullable<System.DateTime> DateModified { get; set; }
 
     }
 }

@@ -174,7 +174,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PetitionDetailsController.cs" />
     <Compile Include="Controllers\PetitionerDetailsController.cs" />
+    <Compile Include="Controllers\ReliefsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2328,6 +2330,16 @@
     <Content Include="Views\PetitionerDetails\Details.cshtml" />
     <Content Include="Views\PetitionerDetails\Edit.cshtml" />
     <Content Include="Views\PetitionerDetails\Index.cshtml" />
+    <Content Include="Views\PetitionDetails\Create.cshtml" />
+    <Content Include="Views\PetitionDetails\Delete.cshtml" />
+    <Content Include="Views\PetitionDetails\Details.cshtml" />
+    <Content Include="Views\PetitionDetails\Edit.cshtml" />
+    <Content Include="Views\PetitionDetails\Index.cshtml" />
+    <Content Include="Views\Reliefs\Create.cshtml" />
+    <Content Include="Views\Reliefs\Delete.cshtml" />
+    <Content Include="Views\Reliefs\Details.cshtml" />
+    <Content Include="Views\Reliefs\Edit.cshtml" />
+    <Content Include="Views\Reliefs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

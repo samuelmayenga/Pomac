@@ -1,0 +1,219 @@
+﻿@model IEnumerable<POMACSystem.Models.PetitionDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourtCaseNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfConviction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfOffence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaceOfOffence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfArrest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfRemand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EarliestPossibleDateOfDischarge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LatestPossibleDateOfDischarge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountsImplementation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resentenced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResentencingOutcome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PendingCourtMatter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PendingCourtMattersExplanation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NatureParticularsCircumstancesOfOffence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousPetitions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trustee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfTrusteePromotion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Achievement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attributes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreYouPrisoner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOfRepresentativeOrAdvocate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelationshipWithConvict)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelephoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.RoleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Court.CourtName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetitionerDetail.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Relief.ReliefName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourtCaseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfConviction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfOffence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaceOfOffence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfArrest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfRemand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EarliestPossibleDateOfDischarge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LatestPossibleDateOfDischarge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountsImplementation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resentenced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResentencingOutcome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PendingCourtMatter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PendingCourtMattersExplanation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NatureParticularsCircumstancesOfOffence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreviousPetitions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trustee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfTrusteePromotion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achievement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attributes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreYouPrisoner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOfRepresentativeOrAdvocate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RelationshipWithConvict)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelephoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.RoleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Court.CourtName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetitionerDetail.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Relief.ReliefName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PetitionDetailsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PetitionDetailsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PetitionDetailsID })
+        </td>
+    </tr>
+}
+
+</table>

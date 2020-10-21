@@ -605,17 +605,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Appeals">
-      <EntityTypeMapping TypeName="PomacDBModel.Appeal">
-        <MappingFragment StoreEntitySet="Appeals">
-          <ScalarProperty Name="AppealsID" ColumnName="AppealsID" />
-          <ScalarProperty Name="PetitionDetailsID" ColumnName="PetitionDetailsID" />
-          <ScalarProperty Name="AppealNumber" ColumnName="AppealNumber" />
-          <ScalarProperty Name="AppealCaseNumber" ColumnName="AppealCaseNumber" />
-          <ScalarProperty Name="Outcome" ColumnName="Outcome" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Recommendations">
       <EntityTypeMapping TypeName="PomacDBModel.Recommendation">
         <MappingFragment StoreEntitySet="Recommendation">
@@ -641,6 +630,17 @@
         <MappingFragment StoreEntitySet="Roles">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Appeals">
+      <EntityTypeMapping TypeName="PomacDBModel.Appeal">
+        <MappingFragment StoreEntitySet="Appeals">
+          <ScalarProperty Name="Outcome" ColumnName="Outcome" />
+          <ScalarProperty Name="AppealCaseNumber" ColumnName="AppealCaseNumber" />
+          <ScalarProperty Name="AppealNumber" ColumnName="AppealNumber" />
+          <ScalarProperty Name="PetitionDetailsID" ColumnName="PetitionDetailsID" />
+          <ScalarProperty Name="AppealsID" ColumnName="AppealsID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

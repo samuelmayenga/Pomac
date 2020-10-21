@@ -23,12 +23,12 @@ namespace POMACSystem.Models
             this.DisciplinaryActions = new HashSet<DisciplinaryAction>();
             this.HearingSummaries = new HashSet<HearingSummary>();
             this.InterviewSummaries = new HashSet<InterviewSummary>();
-            this.Appeals = new HashSet<Appeal>();
             this.PreviousConvictions = new HashSet<PreviousConviction>();
             this.PrisonerHistoryInRehabs = new HashSet<PrisonerHistoryInRehab>();
             this.ProbatioAndAftercareServices = new HashSet<ProbatioAndAftercareService>();
             this.Victims = new HashSet<Victim>();
             this.Victims1 = new HashSet<Victim>();
+            this.Appeals = new HashSet<Appeal>();
         }
     
         public int PetitionDetailsID { get; set; }
@@ -79,8 +79,6 @@ namespace POMACSystem.Models
         public virtual ICollection<HearingSummary> HearingSummaries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InterviewSummary> InterviewSummaries { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appeal> Appeals { get; set; }
         public virtual PetitionerDetail PetitionerDetail { get; set; }
         public virtual Relief Relief { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -93,5 +91,7 @@ namespace POMACSystem.Models
         public virtual ICollection<Victim> Victims { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Victim> Victims1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appeal> Appeals { get; set; }
     }
 }
