@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="284339a555804df494db30cdd14df85d" Name="Diagram1">
+        <EntityTypeShape EntityType="PomacDBModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Achievement" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.AspNetRole" Width="1.5" PointX="1.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.AspNetUser" Width="1.5" PointX="0.75" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Attribute" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Coaccused" Width="1.5" PointX="7.5" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Counselling" Width="1.5" PointX="11.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.County" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Count" Width="1.5" PointX="7.5" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Court" Width="1.5" PointX="3" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.CurrentPetitionReson" Width="1.5" PointX="10.5" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Deployment" Width="1.5" PointX="11.25" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.DisciplinaryAction" Width="1.5" PointX="7.5" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.EducationLevel" Width="1.5" PointX="0.75" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.FamilyDetail" Width="1.5" PointX="21.75" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Gender" Width="1.5" PointX="0.75" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.HearingSummary" Width="1.5" PointX="10.5" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.InterviewSummary" Width="1.5" PointX="10.5" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Location" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.MaritalStatu" Width="1.5" PointX="0.75" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Nationality" Width="1.5" PointX="0.75" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.NextOfKin" Width="1.5" PointX="0.75" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PetitionDetail" Width="1.5" PointX="5.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PetitionerDetail" Width="1.5" PointX="3" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PetitionReason" Width="1.5" PointX="8.25" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PreviousConviction" Width="1.5" PointX="7.5" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PrisonComment" Width="1.5" PointX="15.75" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PrisonerHistoryInRehab" Width="1.5" PointX="13.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PrisonerMedicalHistory" Width="1.5" PointX="18.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.PrisonerTraining" Width="1.5" PointX="18.75" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Prison" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.ProbatioAndAftercareService" Width="1.5" PointX="16.5" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.ProgressiveStage" Width="1.5" PointX="16.5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Relief" Width="1.5" PointX="3" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Skill" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.SubCounty" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Sublocation" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.sysdiagram" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Training" Width="1.5" PointX="11.25" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Tribe" Width="1.5" PointX="0.75" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Victim" Width="1.5" PointX="13.5" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.VitalStatu" Width="1.5" PointX="19.5" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Appeal" Width="1.5" PointX="7.5" PointY="76.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PomacDBModel.Recommendation" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="PomacDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_HearingSummary_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_InterviewSummary_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionDetails_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerHistoryInRehab_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerMedicalHistory_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerTrainings_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_ProbatioAndAftercareServices_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Victims_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Coaccused_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerHistoryInRehab_Counsellings" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_SubCounties_Counties" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Counts_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionDetails_Courts" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_CurrentPetitionResons_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_CurrentPetitionResons_PetitionReasons" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerHistoryInRehab_Deployments" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_DisciplinaryActions_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_EducationLevels" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerHistoryInRehab_EducationLevels" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerHistoryInRehab_EducationLevels1" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_FamilyDetails_NextOfKins" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_FamilyDetails_ProbatioAndAftercareServices" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_FamilyDetails_VitalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Genders" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_HearingSummary_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_InterviewSummary_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Locations_SubCounties" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Sublocation_Locations" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_MaritalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Nationality" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_NextOfKins" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Appeals_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionDetails_PetitionerDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionDetails_Reliefs" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PreviousConvictions_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerHistoryInRehab_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_ProbatioAndAftercareServices_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Victims_PetitionDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_Victims_PetitionDetails1" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Tribes" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonComments_PrisonerHistoryInRehab" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerHistoryInRehab_Trainings" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerMedicalHistory_PrisonerHistoryInRehab" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerTrainings_PrisonerHistoryInRehab" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerTrainings_ProgressiveStages" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.FK_PrisonerTrainings_Trainings" ManuallyRouted="false" />
+        <AssociationConnector Association="PomacDBModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PomacDBModel.Role" Width="1.5" PointX="7.375" PointY="6.75" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Counties" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Locations" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_SubCounties" />
+        <AssociationConnector Association="PomacDBModel.FK_PetitionerDetails_Sublocation" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

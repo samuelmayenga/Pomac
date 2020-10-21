@@ -1,0 +1,213 @@
+﻿@model IEnumerable<POMACSystem.Models.PetitionerDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PetitionNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetitionerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetionerMidName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetitionerLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetitionerAliasName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirthKnown)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Village)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ocupation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NearestChurch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NearestSchool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NearestMarket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeCheif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextOfKinContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextOfKinRelation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactPersonPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.RoleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EducationLevel.LevelOfEducation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender1.GenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaritalStatu.Marital)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality1.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextOfKin1.Relation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tribe.TribeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.County1.CountyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location1.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCounty1.SubCountyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sublocation1.SubLocationName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetitionNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetitionerFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetionerMidName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetitionerLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PetitionerAliasName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirthKnown)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Village)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ocupation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NearestChurch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NearestSchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NearestMarket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeCheif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextOfKinContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextOfKinRelation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactPersonPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateModified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.RoleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EducationLevel.LevelOfEducation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender1.GenderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaritalStatu.Marital)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationality1.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextOfKin1.Relation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tribe.TribeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.County1.CountyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location1.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCounty1.SubCountyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sublocation1.SubLocationName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PetitionerDetailId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PetitionerDetailId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PetitionerDetailId })
+        </td>
+    </tr>
+}
+
+</table>
