@@ -13,7 +13,7 @@ namespace POMACSystem.Controllers
 {
     public class PetitionDetailsController : Controller
     {
-        private PomacDBEntities db = new PomacDBEntities();
+        private PomacDBEntities1 db = new PomacDBEntities1();
 
         // GET: PetitionDetails
         public ActionResult Index()

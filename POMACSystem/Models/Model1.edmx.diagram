@@ -41,6 +41,7 @@
         <EntityTypeShape EntityType="PomacDBModel.PrisonerTraining" Width="1.5" PointX="18.75" PointY="21.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.Prison" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.ProbatioAndAftercareService" Width="1.5" PointX="16.5" PointY="27.25" IsExpanded="true" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="PomacDBModel.ProgressiveStage" Width="1.5" PointX="16.5" PointY="21" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.Relief" Width="1.5" PointX="3" PointY="43.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.Skill" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -54,6 +55,19 @@
         <EntityTypeShape EntityType="PomacDBModel.Recommendation" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PomacDBModel.Role" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="PomacDBModel.FK_Appeals_PetitionDetails" ManuallyRouted="false" />
+=======
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; e166312384339cd4875afa1b0f519b8cd3971af4
         <AssociationConnector Association="PomacDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_HearingSummary_AspNetUsers" ManuallyRouted="false" />
@@ -108,6 +122,16 @@
         <AssociationConnector Association="PomacDBModel.FK_PrisonerTrainings_ProgressiveStages" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.FK_PrisonerTrainings_Trainings" ManuallyRouted="false" />
         <AssociationConnector Association="PomacDBModel.AspNetUserRoles" ManuallyRouted="false" />
+<<<<<<< HEAD
+=======
+        
+        
+        
+        
+        
+        
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; e166312384339cd4875afa1b0f519b8cd3971af4
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -11,7 +11,7 @@ namespace POMACSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class PetitionDetail
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,7 +31,7 @@ namespace POMACSystem.Models
             this.Victims1 = new HashSet<Victim>();
             this.Appeals = new HashSet<Appeal>();
         }
-    
+
         public int PetitionDetailsID { get; set; }
         public string UserId { get; set; }
         public int PetitionerDetailsID { get; set; }
@@ -65,7 +65,7 @@ namespace POMACSystem.Models
         public string EmailAddress { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appeal> Appeals { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
@@ -94,7 +94,8 @@ namespace POMACSystem.Models
         public virtual ICollection<Victim> Victims { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Victim> Victims1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appeal> Appeals { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Appeal> Appeals { get; set; }
     }
+
 }

@@ -12,7 +12,7 @@ namespace POMACSystem.Controllers
 {
     public class ReliefsController : Controller
     {
-        private PomacDBEntities db = new PomacDBEntities();
+        private PomacDBEntities1 db = new PomacDBEntities1();
 
         // GET: Reliefs
         public ActionResult Index()
