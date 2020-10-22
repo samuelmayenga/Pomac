@@ -29,6 +29,7 @@ namespace POMACSystem.Models
             this.ProbatioAndAftercareServices = new HashSet<ProbatioAndAftercareService>();
             this.Victims = new HashSet<Victim>();
             this.Victims1 = new HashSet<Victim>();
+            this.Appeals = new HashSet<Appeal>();
         }
     
         public int PetitionDetailsID { get; set; }
@@ -93,5 +94,7 @@ namespace POMACSystem.Models
         public virtual ICollection<Victim> Victims { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Victim> Victims1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appeal> Appeals { get; set; }
     }
 }

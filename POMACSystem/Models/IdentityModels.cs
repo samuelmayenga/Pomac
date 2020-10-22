@@ -23,6 +23,7 @@ namespace POMACSystem.Models
 
 
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim("FirstName", this.FirstName));
             return userIdentity;
         }
     }

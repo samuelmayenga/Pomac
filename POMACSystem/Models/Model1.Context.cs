@@ -73,5 +73,6 @@ namespace POMACSystem.Models
         public virtual DbSet<VitalStatu> VitalStatus { get; set; }
         public virtual DbSet<Recommendation> Recommendations { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Appeal> Appeals { get; set; }
     }
 }
