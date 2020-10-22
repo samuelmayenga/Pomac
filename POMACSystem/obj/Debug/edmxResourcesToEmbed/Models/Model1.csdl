@@ -1,0 +1,1612 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PomacDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Achievement">
+    <Key>
+      <PropertyRef Name="AchievementId" />
+    </Key>
+    <Property Name="AchievementId" Type="Int32" Nullable="false" />
+    <Property Name="Achievement1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleId" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OtherNames" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PrisonID" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="HearingSummaries" Relationship="Self.FK_HearingSummary_AspNetUsers" FromRole="AspNetUsers" ToRole="HearingSummary" />
+    <NavigationProperty Name="InterviewSummaries" Relationship="Self.FK_InterviewSummary_AspNetUsers" FromRole="AspNetUsers" ToRole="InterviewSummary" />
+    <NavigationProperty Name="PetitionDetails" Relationship="Self.FK_PetitionDetails_AspNetUsers" FromRole="AspNetUsers" ToRole="PetitionDetails" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="Self.FK_PetitionerDetails_AspNetUsers" FromRole="AspNetUsers" ToRole="PetitionerDetails" />
+    <NavigationProperty Name="PrisonerHistoryInRehabs" Relationship="Self.FK_PrisonerHistoryInRehab_AspNetUsers" FromRole="AspNetUsers" ToRole="PrisonerHistoryInRehab" />
+    <NavigationProperty Name="PrisonerMedicalHistories" Relationship="Self.FK_PrisonerMedicalHistory_AspNetUsers" FromRole="AspNetUsers" ToRole="PrisonerMedicalHistory" />
+    <NavigationProperty Name="PrisonerTrainings" Relationship="Self.FK_PrisonerTrainings_AspNetUsers" FromRole="AspNetUsers" ToRole="PrisonerTrainings" />
+    <NavigationProperty Name="ProbatioAndAftercareServices" Relationship="Self.FK_ProbatioAndAftercareServices_AspNetUsers" FromRole="AspNetUsers" ToRole="ProbatioAndAftercareServices" />
+    <NavigationProperty Name="Victims" Relationship="Self.FK_Victims_AspNetUsers" FromRole="AspNetUsers" ToRole="Victims" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Attribute">
+    <Key>
+      <PropertyRef Name="AttributeId" />
+    </Key>
+    <Property Name="AttributeId" Type="Int32" Nullable="false" />
+    <Property Name="AttributeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Coaccused">
+    <Key>
+      <PropertyRef Name="CoaccusedID" />
+    </Key>
+    <Property Name="CoaccusedID" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="ConvictName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrisonID" Type="Int32" />
+    <Property Name="Convicted" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_Coaccused_PetitionDetails" FromRole="Coaccused" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="Counselling">
+    <Key>
+      <PropertyRef Name="CounsellingId" />
+    </Key>
+    <Property Name="CounsellingId" Type="Int32" Nullable="false" />
+    <Property Name="CounsellingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PrisonerHistoryInRehabs" Relationship="Self.FK_PrisonerHistoryInRehab_Counsellings" FromRole="Counsellings" ToRole="PrisonerHistoryInRehab" />
+  </EntityType>
+  <EntityType Name="County">
+    <Key>
+      <PropertyRef Name="CountyId" />
+    </Key>
+    <Property Name="CountyId" Type="Int32" Nullable="false" />
+    <Property Name="CountyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CountyCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SubCounties" Relationship="Self.FK_SubCounties_Counties" FromRole="Counties" ToRole="SubCounties" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="PomacDBModel.FK_PetitionerDetails_Counties" FromRole="County" ToRole="PetitionerDetail" />
+  </EntityType>
+  <EntityType Name="Count">
+    <Key>
+      <PropertyRef Name="CountsID" />
+    </Key>
+    <Property Name="CountsID" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="CountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfConviction" Type="DateTime" Precision="0" />
+    <Property Name="Sentence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_Counts_PetitionDetails" FromRole="Counts" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="Court">
+    <Key>
+      <PropertyRef Name="CourtId" />
+    </Key>
+    <Property Name="CourtId" Type="Int32" Nullable="false" />
+    <Property Name="CourtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionDetails" Relationship="Self.FK_PetitionDetails_Courts" FromRole="Courts" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="CurrentPetitionReson">
+    <Key>
+      <PropertyRef Name="CRId" />
+    </Key>
+    <Property Name="CRId" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="RId" Type="Int32" Nullable="false" />
+    <Property Name="Explanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Attachment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_CurrentPetitionResons_PetitionDetails" FromRole="CurrentPetitionResons" ToRole="PetitionDetails" />
+    <NavigationProperty Name="PetitionReason" Relationship="Self.FK_CurrentPetitionResons_PetitionReasons" FromRole="CurrentPetitionResons" ToRole="PetitionReasons" />
+  </EntityType>
+  <EntityType Name="Deployment">
+    <Key>
+      <PropertyRef Name="DeploymentId" />
+    </Key>
+    <Property Name="DeploymentId" Type="Int32" Nullable="false" />
+    <Property Name="DeploymentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PrisonerHistoryInRehabs" Relationship="Self.FK_PrisonerHistoryInRehab_Deployments" FromRole="Deployments" ToRole="PrisonerHistoryInRehab" />
+  </EntityType>
+  <EntityType Name="DisciplinaryAction">
+    <Key>
+      <PropertyRef Name="DAId" />
+    </Key>
+    <Property Name="DAId" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="Offence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActionTaken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_DisciplinaryActions_PetitionDetails" FromRole="DisciplinaryActions" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="EducationLevel">
+    <Key>
+      <PropertyRef Name="LevelOfEducationId" />
+    </Key>
+    <Property Name="LevelOfEducationId" Type="Int32" Nullable="false" />
+    <Property Name="LevelOfEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="Self.FK_PetitionerDetails_EducationLevels" FromRole="EducationLevels" ToRole="PetitionerDetails" />
+    <NavigationProperty Name="PrisonerHistoryInRehabs" Relationship="Self.FK_PrisonerHistoryInRehab_EducationLevels" FromRole="EducationLevels" ToRole="PrisonerHistoryInRehab" />
+    <NavigationProperty Name="PrisonerHistoryInRehabs1" Relationship="Self.FK_PrisonerHistoryInRehab_EducationLevels1" FromRole="EducationLevels" ToRole="PrisonerHistoryInRehab" />
+  </EntityType>
+  <EntityType Name="FamilyDetail">
+    <Key>
+      <PropertyRef Name="FamilyDetailsID" />
+    </Key>
+    <Property Name="FamilyDetailsID" Type="Int32" Nullable="false" />
+    <Property Name="ProbationAftercareID" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NextOfKinID" Type="Int32" />
+    <Property Name="FamilyMemberName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FamilyMemberIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="FamilyMemberOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FamilyMemberVitalStatusId" Type="Int32" />
+    <Property Name="FamilyMemberResidence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FamilyMemberEconomicStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Relations" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VisitedTimes" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="NextOfKin" Relationship="Self.FK_FamilyDetails_NextOfKins" FromRole="FamilyDetails" ToRole="NextOfKins" />
+    <NavigationProperty Name="ProbatioAndAftercareService" Relationship="Self.FK_FamilyDetails_ProbatioAndAftercareServices" FromRole="FamilyDetails" ToRole="ProbatioAndAftercareServices" />
+    <NavigationProperty Name="VitalStatu" Relationship="Self.FK_FamilyDetails_VitalStatus" FromRole="FamilyDetails" ToRole="VitalStatus" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderId" />
+    </Key>
+    <Property Name="GenderId" Type="Int32" Nullable="false" />
+    <Property Name="GenderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="Self.FK_PetitionerDetails_Genders" FromRole="Genders" ToRole="PetitionerDetails" />
+  </EntityType>
+  <EntityType Name="HearingSummary">
+    <Key>
+      <PropertyRef Name="HearingSummaryID" />
+    </Key>
+    <Property Name="HearingSummaryID" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PetitionDetailsId" Type="Int32" Nullable="false" />
+    <Property Name="HearingDate" Type="DateTime" Precision="0" />
+    <Property Name="RemarksOnAgeAtConviction" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnCircumstances" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnIfConvictFirstOffender" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnNatureAndSeriousnessOfOffence" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnLengthServedByConvict" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnLengthOfPeriodServedInRemand" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PersonalCircumstancesOfOffenderAtMakingPetition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnInterestOfStateAndCommunity" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnPostConvictionConductOfOffender" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnReportsFromSDCS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnOtherRemediesAndOutcomes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnVictimRepresentation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnFellowInmateReport" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RemarksOnProbationServicesReports" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Recommendation" Type="Boolean" />
+    <Property Name="RecommendationRemarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_HearingSummary_AspNetUsers" FromRole="HearingSummary" ToRole="AspNetUsers" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_HearingSummary_PetitionDetails" FromRole="HearingSummary" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="InterviewSummary">
+    <Key>
+      <PropertyRef Name="InterviewSummaryID" />
+    </Key>
+    <Property Name="InterviewSummaryID" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="OwnAccountOfCircumstances" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ReconciliationEffortsWithVictims" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IndicationOfRemoursefullness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AnyOtherComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RepresentationOfVictims" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ConcludingObservationsOfMember" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Recommendation" Type="Boolean" />
+    <Property Name="RemarksOnRecommendation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_InterviewSummary_AspNetUsers" FromRole="InterviewSummary" ToRole="AspNetUsers" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_InterviewSummary_PetitionDetails" FromRole="InterviewSummary" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SubCountyId" Type="Int32" />
+    <NavigationProperty Name="SubCounty" Relationship="Self.FK_Locations_SubCounties" FromRole="Locations" ToRole="SubCounties" />
+    <NavigationProperty Name="Sublocations" Relationship="Self.FK_Sublocation_Locations" FromRole="Locations" ToRole="Sublocation" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="PomacDBModel.FK_PetitionerDetails_Locations" FromRole="Location" ToRole="PetitionerDetail" />
+  </EntityType>
+  <EntityType Name="MaritalStatu">
+    <Key>
+      <PropertyRef Name="MaritalId" />
+    </Key>
+    <Property Name="MaritalId" Type="Int32" Nullable="false" />
+    <Property Name="Marital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="Self.FK_PetitionerDetails_MaritalStatus" FromRole="MaritalStatus" ToRole="PetitionerDetails" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="NationalityId" />
+    </Key>
+    <Property Name="NationalityId" Type="Int32" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="Self.FK_PetitionerDetails_Nationality" FromRole="Nationality" ToRole="PetitionerDetails" />
+  </EntityType>
+  <EntityType Name="NextOfKin">
+    <Key>
+      <PropertyRef Name="NextOfKinID" />
+    </Key>
+    <Property Name="NextOfKinID" Type="Int32" Nullable="false" />
+    <Property Name="Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FamilyDetails" Relationship="Self.FK_FamilyDetails_NextOfKins" FromRole="NextOfKins" ToRole="FamilyDetails" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="Self.FK_PetitionerDetails_NextOfKins" FromRole="NextOfKins" ToRole="PetitionerDetails" />
+  </EntityType>
+  <EntityType Name="PetitionDetail">
+    <Key>
+      <PropertyRef Name="PetitionDetailsID" />
+    </Key>
+    <Property Name="PetitionDetailsID" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PetitionerDetailsID" Type="Int32" Nullable="false" />
+    <Property Name="CourtCaseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfConviction" Type="DateTime" Precision="0" />
+    <Property Name="DateOfOffence" Type="DateTime" Precision="0" />
+    <Property Name="PlaceOfOffence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfArrest" Type="DateTime" Precision="0" />
+    <Property Name="DateOfRemand" Type="DateTime" Precision="0" />
+    <Property Name="EarliestPossibleDateOfDischarge" Type="DateTime" Precision="0" />
+    <Property Name="LatestPossibleDateOfDischarge" Type="DateTime" Precision="0" />
+    <Property Name="TrialCourt" Type="Int32" />
+    <Property Name="CountsImplementation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Resentenced" Type="Boolean" />
+    <Property Name="ResentencingOutcome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PendingCourtMatter" Type="Boolean" />
+    <Property Name="PendingCourtMattersExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ReliefsID" Type="Int32" />
+    <Property Name="Skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NatureParticularsCircumstancesOfOffence" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PreviousPetitions" Type="Int32" />
+    <Property Name="Trustee" Type="Boolean" />
+    <Property Name="DateOfTrusteePromotion" Type="DateTime" Precision="0" />
+    <Property Name="Achievement" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Attributes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AreYouPrisoner" Type="Boolean" />
+    <Property Name="NameOfRepresentativeOrAdvocate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RelationshipWithConvict" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TelephoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PetitionDetails_AspNetUsers" FromRole="PetitionDetails" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Coaccuseds" Relationship="Self.FK_Coaccused_PetitionDetails" FromRole="PetitionDetails" ToRole="Coaccused" />
+    <NavigationProperty Name="Counts" Relationship="Self.FK_Counts_PetitionDetails" FromRole="PetitionDetails" ToRole="Counts" />
+    <NavigationProperty Name="Court" Relationship="Self.FK_PetitionDetails_Courts" FromRole="PetitionDetails" ToRole="Courts" />
+    <NavigationProperty Name="CurrentPetitionResons" Relationship="Self.FK_CurrentPetitionResons_PetitionDetails" FromRole="PetitionDetails" ToRole="CurrentPetitionResons" />
+    <NavigationProperty Name="DisciplinaryActions" Relationship="Self.FK_DisciplinaryActions_PetitionDetails" FromRole="PetitionDetails" ToRole="DisciplinaryActions" />
+    <NavigationProperty Name="HearingSummaries" Relationship="Self.FK_HearingSummary_PetitionDetails" FromRole="PetitionDetails" ToRole="HearingSummary" />
+    <NavigationProperty Name="InterviewSummaries" Relationship="Self.FK_InterviewSummary_PetitionDetails" FromRole="PetitionDetails" ToRole="InterviewSummary" />
+    <NavigationProperty Name="PetitionerDetail" Relationship="Self.FK_PetitionDetails_PetitionerDetails" FromRole="PetitionDetails" ToRole="PetitionerDetails" />
+    <NavigationProperty Name="Relief" Relationship="Self.FK_PetitionDetails_Reliefs" FromRole="PetitionDetails" ToRole="Reliefs" />
+    <NavigationProperty Name="PreviousConvictions" Relationship="Self.FK_PreviousConvictions_PetitionDetails" FromRole="PetitionDetails" ToRole="PreviousConvictions" />
+    <NavigationProperty Name="PrisonerHistoryInRehabs" Relationship="Self.FK_PrisonerHistoryInRehab_PetitionDetails" FromRole="PetitionDetails" ToRole="PrisonerHistoryInRehab" />
+    <NavigationProperty Name="ProbatioAndAftercareServices" Relationship="Self.FK_ProbatioAndAftercareServices_PetitionDetails" FromRole="PetitionDetails" ToRole="ProbatioAndAftercareServices" />
+    <NavigationProperty Name="Victims" Relationship="Self.FK_Victims_PetitionDetails" FromRole="PetitionDetails" ToRole="Victims" />
+    <NavigationProperty Name="Victims1" Relationship="Self.FK_Victims_PetitionDetails1" FromRole="PetitionDetails" ToRole="Victims" />
+    <NavigationProperty Name="Appeals" Relationship="PomacDBModel.FK_Appeals_PetitionDetails" FromRole="PetitionDetail" ToRole="Appeal" />
+  </EntityType>
+  <EntityType Name="PetitionerDetail">
+    <Key>
+      <PropertyRef Name="PetitionerDetailId" />
+    </Key>
+    <Property Name="PetitionerDetailId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PetitionNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PetitionerFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PetionerMidName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PetitionerLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PetitionerAliasName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="MaritalStatus" Type="Int32" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="DateOfBirthKnown" Type="Boolean" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="IdNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="Int32" />
+    <Property Name="SubCounty" Type="Int32" />
+    <Property Name="Location" Type="Int32" />
+    <Property Name="SubLocation" Type="Int32" />
+    <Property Name="Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EthnicityId" Type="Int32" />
+    <Property Name="Ocupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LevelOfEducation" Type="Int32" />
+    <Property Name="NearestChurch" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NearestSchool" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NearestMarket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HomeCheif" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NextOfKin" Type="Int32" />
+    <Property Name="NextOfKinContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NextOfKinRelation" Type="Int32" />
+    <Property Name="ContactPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactPersonPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PetitionerDetails_AspNetUsers" FromRole="PetitionerDetails" ToRole="AspNetUsers" />
+    <NavigationProperty Name="EducationLevel" Relationship="Self.FK_PetitionerDetails_EducationLevels" FromRole="PetitionerDetails" ToRole="EducationLevels" />
+    <NavigationProperty Name="Gender1" Relationship="Self.FK_PetitionerDetails_Genders" FromRole="PetitionerDetails" ToRole="Genders" />
+    <NavigationProperty Name="MaritalStatu" Relationship="Self.FK_PetitionerDetails_MaritalStatus" FromRole="PetitionerDetails" ToRole="MaritalStatus" />
+    <NavigationProperty Name="Nationality1" Relationship="Self.FK_PetitionerDetails_Nationality" FromRole="PetitionerDetails" ToRole="Nationality" />
+    <NavigationProperty Name="NextOfKin1" Relationship="Self.FK_PetitionerDetails_NextOfKins" FromRole="PetitionerDetails" ToRole="NextOfKins" />
+    <NavigationProperty Name="PetitionDetails" Relationship="Self.FK_PetitionDetails_PetitionerDetails" FromRole="PetitionerDetails" ToRole="PetitionDetails" />
+    <NavigationProperty Name="Tribe" Relationship="Self.FK_PetitionerDetails_Tribes" FromRole="PetitionerDetails" ToRole="Tribes" />
+    <NavigationProperty Name="County1" Relationship="PomacDBModel.FK_PetitionerDetails_Counties" FromRole="PetitionerDetail" ToRole="County" />
+    <NavigationProperty Name="Location1" Relationship="PomacDBModel.FK_PetitionerDetails_Locations" FromRole="PetitionerDetail" ToRole="Location" />
+    <NavigationProperty Name="SubCounty1" Relationship="PomacDBModel.FK_PetitionerDetails_SubCounties" FromRole="PetitionerDetail" ToRole="SubCounty" />
+    <NavigationProperty Name="Sublocation1" Relationship="PomacDBModel.FK_PetitionerDetails_Sublocation" FromRole="PetitionerDetail" ToRole="Sublocation" />
+  </EntityType>
+  <EntityType Name="PetitionReason">
+    <Key>
+      <PropertyRef Name="PRId" />
+    </Key>
+    <Property Name="PRId" Type="Int32" Nullable="false" />
+    <Property Name="PetitionReson" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="CurrentPetitionResons" Relationship="Self.FK_CurrentPetitionResons_PetitionReasons" FromRole="PetitionReasons" ToRole="CurrentPetitionResons" />
+  </EntityType>
+  <EntityType Name="PreviousConviction">
+    <Key>
+      <PropertyRef Name="PCId" />
+    </Key>
+    <Property Name="PCId" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="CourtCaseNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CourtId" Type="Int32" />
+    <Property Name="DateOfConviction" Type="DateTime" Precision="0" />
+    <Property Name="Sentence" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_PreviousConvictions_PetitionDetails" FromRole="PreviousConvictions" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="PrisonComment">
+    <Key>
+      <PropertyRef Name="PCId" />
+    </Key>
+    <Property Name="PCId" Type="Int32" Nullable="false" />
+    <Property Name="PHId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PrisonComment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Officer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Recommend" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PrisonerHistoryInRehab" Relationship="Self.FK_PrisonComments_PrisonerHistoryInRehab" FromRole="PrisonComments" ToRole="PrisonerHistoryInRehab" />
+  </EntityType>
+  <EntityType Name="PrisonerHistoryInRehab">
+    <Key>
+      <PropertyRef Name="PHId" />
+    </Key>
+    <Property Name="PHId" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsId" Type="Int32" />
+    <Property Name="LevelOfEductation" Type="Int32" />
+    <Property Name="LevelOfCurrentEducation" Type="Int32" />
+    <Property Name="Training" Type="Boolean" />
+    <Property Name="TrainingID" Type="Int32" />
+    <Property Name="Deployment" Type="Boolean" />
+    <Property Name="DeploymentID" Type="Int32" />
+    <Property Name="SocialActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SpiritualGrowth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProgressiveStages" Type="Int32" />
+    <Property Name="CounsellingID" Type="Int32" />
+    <Property Name="physcologicalSupport" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmotionStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GeneralConduct" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PrisonerHistoryInRehab_AspNetUsers" FromRole="PrisonerHistoryInRehab" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Counselling" Relationship="Self.FK_PrisonerHistoryInRehab_Counsellings" FromRole="PrisonerHistoryInRehab" ToRole="Counsellings" />
+    <NavigationProperty Name="Deployment1" Relationship="Self.FK_PrisonerHistoryInRehab_Deployments" FromRole="PrisonerHistoryInRehab" ToRole="Deployments" />
+    <NavigationProperty Name="EducationLevel" Relationship="Self.FK_PrisonerHistoryInRehab_EducationLevels" FromRole="PrisonerHistoryInRehab" ToRole="EducationLevels" />
+    <NavigationProperty Name="EducationLevel1" Relationship="Self.FK_PrisonerHistoryInRehab_EducationLevels1" FromRole="PrisonerHistoryInRehab" ToRole="EducationLevels" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_PrisonerHistoryInRehab_PetitionDetails" FromRole="PrisonerHistoryInRehab" ToRole="PetitionDetails" />
+    <NavigationProperty Name="PrisonComments" Relationship="Self.FK_PrisonComments_PrisonerHistoryInRehab" FromRole="PrisonerHistoryInRehab" ToRole="PrisonComments" />
+    <NavigationProperty Name="Training1" Relationship="Self.FK_PrisonerHistoryInRehab_Trainings" FromRole="PrisonerHistoryInRehab" ToRole="Trainings" />
+    <NavigationProperty Name="PrisonerMedicalHistories" Relationship="Self.FK_PrisonerMedicalHistory_PrisonerHistoryInRehab" FromRole="PrisonerHistoryInRehab" ToRole="PrisonerMedicalHistory" />
+    <NavigationProperty Name="PrisonerTrainings" Relationship="Self.FK_PrisonerTrainings_PrisonerHistoryInRehab" FromRole="PrisonerHistoryInRehab" ToRole="PrisonerTrainings" />
+  </EntityType>
+  <EntityType Name="PrisonerMedicalHistory">
+    <Key>
+      <PropertyRef Name="PMHId" />
+    </Key>
+    <Property Name="PMHId" Type="Int32" Nullable="false" />
+    <Property Name="PHId" Type="Int32" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PhysicalStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MentalStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Attachment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PrisonerMedicalHistory_AspNetUsers" FromRole="PrisonerMedicalHistory" ToRole="AspNetUsers" />
+    <NavigationProperty Name="PrisonerHistoryInRehab" Relationship="Self.FK_PrisonerMedicalHistory_PrisonerHistoryInRehab" FromRole="PrisonerMedicalHistory" ToRole="PrisonerHistoryInRehab" />
+  </EntityType>
+  <EntityType Name="PrisonerTraining">
+    <Key>
+      <PropertyRef Name="PrisonerTrainingId" />
+    </Key>
+    <Property Name="PrisonerTrainingId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PHId" Type="Int32" />
+    <Property Name="TrainingId" Type="Int32" />
+    <Property Name="TrainingLevelId" Type="Int32" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Attachement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PrisonerTrainings_AspNetUsers" FromRole="PrisonerTrainings" ToRole="AspNetUsers" />
+    <NavigationProperty Name="PrisonerHistoryInRehab" Relationship="Self.FK_PrisonerTrainings_PrisonerHistoryInRehab" FromRole="PrisonerTrainings" ToRole="PrisonerHistoryInRehab" />
+    <NavigationProperty Name="ProgressiveStage" Relationship="Self.FK_PrisonerTrainings_ProgressiveStages" FromRole="PrisonerTrainings" ToRole="ProgressiveStages" />
+    <NavigationProperty Name="Training" Relationship="Self.FK_PrisonerTrainings_Trainings" FromRole="PrisonerTrainings" ToRole="Trainings" />
+  </EntityType>
+  <EntityType Name="Prison">
+    <Key>
+      <PropertyRef Name="PrisonID" />
+    </Key>
+    <Property Name="PrisonID" Type="Int32" Nullable="false" />
+    <Property Name="PrisonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrisonCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ProbatioAndAftercareService">
+    <Key>
+      <PropertyRef Name="ProbationAftercareID" />
+    </Key>
+    <Property Name="ProbationAftercareID" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsID" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="SourceOfInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ReportSummary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceToPreviousPrereleaseReports" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PersonalHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PreviousConvictions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PreviousEducation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PreviousOccupation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PreviousEngagementWithAlcoholDrugs" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PersonalUnderstandingOfCrimeAndEffects" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InterpersonalRelationshipsWithFamily" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LifeDevelopmentalChallenges" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentChangeOfAttitudeBehaviour" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AnyOtherObservables" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FamilyTiesAndSupportSystem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IncarcerationEffect" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CriminalityHistoryInFamily" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FrequencyOfFamilyContact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OutstandingSuccessionInheritanceDisputes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CircumstancesOfOffence" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RelationOfVictimToPetitionerAndRelations" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="VictimFears" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CompensationResponsibility" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VictimProtectionMeasures" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CommunityAcceptanceConcerns" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InformationFromCorrectionalFacilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityOrgansComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LegalRequirementsForSupervision" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AssessmentOfCorrectionalInterventions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LevelOfReductionOfRecidivism" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AcceptanceByFamilyAndCommunity" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AccomodationAndHousing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SubstanceAndAlcoholMisuse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HealthcareIncludingMentalHealth" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PurposefulEmployment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PresenceOfAlluringNegativePeers" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PostReleasePlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmpowermentAndSupportRequired" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RiskFactorsAndMitigation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProtectiveFactors" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ReintegrationPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Supervision" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Recommendation" Type="Boolean" />
+    <Property Name="RecommendationRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProbationOfficerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="Datemodified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_ProbatioAndAftercareServices_AspNetUsers" FromRole="ProbatioAndAftercareServices" ToRole="AspNetUsers" />
+    <NavigationProperty Name="FamilyDetails" Relationship="Self.FK_FamilyDetails_ProbatioAndAftercareServices" FromRole="ProbatioAndAftercareServices" ToRole="FamilyDetails" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_ProbatioAndAftercareServices_PetitionDetails" FromRole="ProbatioAndAftercareServices" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="ProgressiveStage">
+    <Key>
+      <PropertyRef Name="PSId" />
+    </Key>
+    <Property Name="PSId" Type="Int32" Nullable="false" />
+    <Property Name="ProgressiveStage1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PrisonerTrainings" Relationship="Self.FK_PrisonerTrainings_ProgressiveStages" FromRole="ProgressiveStages" ToRole="PrisonerTrainings" />
+  </EntityType>
+  <EntityType Name="Relief">
+    <Key>
+      <PropertyRef Name="ReliefID" />
+    </Key>
+    <Property Name="ReliefID" Type="Int32" Nullable="false" />
+    <Property Name="ReliefName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionDetails" Relationship="Self.FK_PetitionDetails_Reliefs" FromRole="Reliefs" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SkillId" />
+    </Key>
+    <Property Name="SkillId" Type="Int32" Nullable="false" />
+    <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SubCounty">
+    <Key>
+      <PropertyRef Name="SubCountyId" />
+    </Key>
+    <Property Name="SubCountyId" Type="Int32" Nullable="false" />
+    <Property Name="SubCountyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CountyId" Type="Int32" />
+    <NavigationProperty Name="County" Relationship="Self.FK_SubCounties_Counties" FromRole="SubCounties" ToRole="Counties" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_SubCounties" FromRole="SubCounties" ToRole="Locations" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="PomacDBModel.FK_PetitionerDetails_SubCounties" FromRole="SubCounty" ToRole="PetitionerDetail" />
+  </EntityType>
+  <EntityType Name="Sublocation">
+    <Key>
+      <PropertyRef Name="SubLocationId" />
+    </Key>
+    <Property Name="SubLocationId" Type="Int32" Nullable="false" />
+    <Property Name="SubLocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LocationId" Type="Int32" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_Sublocation_Locations" FromRole="Sublocation" ToRole="Locations" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="PomacDBModel.FK_PetitionerDetails_Sublocation" FromRole="Sublocation" ToRole="PetitionerDetail" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="TrainingId" />
+    </Key>
+    <Property Name="TrainingId" Type="Int32" Nullable="false" />
+    <Property Name="TrainingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PrisonerHistoryInRehabs" Relationship="Self.FK_PrisonerHistoryInRehab_Trainings" FromRole="Trainings" ToRole="PrisonerHistoryInRehab" />
+    <NavigationProperty Name="PrisonerTrainings" Relationship="Self.FK_PrisonerTrainings_Trainings" FromRole="Trainings" ToRole="PrisonerTrainings" />
+  </EntityType>
+  <EntityType Name="Tribe">
+    <Key>
+      <PropertyRef Name="TribeId" />
+    </Key>
+    <Property Name="TribeId" Type="Int32" Nullable="false" />
+    <Property Name="TribeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionerDetails" Relationship="Self.FK_PetitionerDetails_Tribes" FromRole="Tribes" ToRole="PetitionerDetails" />
+  </EntityType>
+  <EntityType Name="Victim">
+    <Key>
+      <PropertyRef Name="VictimId" />
+    </Key>
+    <Property Name="VictimId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="VictimName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubCounty" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sublocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Village" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Representation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AnyReconciliation" Type="Boolean" />
+    <Property Name="ReconcilliationOutcome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Victims_AspNetUsers" FromRole="Victims" ToRole="AspNetUsers" />
+    <NavigationProperty Name="PetitionDetail" Relationship="Self.FK_Victims_PetitionDetails" FromRole="Victims" ToRole="PetitionDetails" />
+    <NavigationProperty Name="PetitionDetail1" Relationship="Self.FK_Victims_PetitionDetails1" FromRole="Victims" ToRole="PetitionDetails" />
+  </EntityType>
+  <EntityType Name="VitalStatu">
+    <Key>
+      <PropertyRef Name="VSId" />
+    </Key>
+    <Property Name="VSId" Type="Int32" Nullable="false" />
+    <Property Name="VitalStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FamilyDetails" Relationship="Self.FK_FamilyDetails_VitalStatus" FromRole="VitalStatus" ToRole="FamilyDetails" />
+  </EntityType>
+  <EntityType Name="Recommendation">
+    <Key>
+      <PropertyRef Name="RecommendationID" />
+      <PropertyRef Name="PetitionDetailsId" />
+    </Key>
+    <Property Name="RecommendationID" Type="Int32" Nullable="false" />
+    <Property Name="PetitionDetailsId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="FullCommitteeRecommendation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Recommendation1" Type="Boolean" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HearingSummary_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="HearingSummary" Type="Self.HearingSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HearingSummary">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterviewSummary_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="InterviewSummary" Type="Self.InterviewSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InterviewSummary">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionDetails_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PetitionDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerHistoryInRehab_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerMedicalHistory_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="PrisonerMedicalHistory" Type="Self.PrisonerMedicalHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrisonerMedicalHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerTrainings_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="PrisonerTrainings" Type="Self.PrisonerTraining" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrisonerTrainings">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProbatioAndAftercareServices_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="ProbatioAndAftercareServices" Type="Self.ProbatioAndAftercareService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProbatioAndAftercareServices">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Victims_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Victims" Type="Self.Victim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Victims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coaccused_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="Coaccused" Type="Self.Coaccused" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="Coaccused">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerHistoryInRehab_Counsellings">
+    <End Role="Counsellings" Type="Self.Counselling" Multiplicity="0..1" />
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Counsellings">
+        <PropertyRef Name="CounsellingId" />
+      </Principal>
+      <Dependent Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="CounsellingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubCounties_Counties">
+    <End Role="Counties" Type="Self.County" Multiplicity="0..1" />
+    <End Role="SubCounties" Type="Self.SubCounty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Counties">
+        <PropertyRef Name="CountyId" />
+      </Principal>
+      <Dependent Role="SubCounties">
+        <PropertyRef Name="CountyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Counts_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="Counts" Type="Self.Count" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="Counts">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionDetails_Courts">
+    <End Role="Courts" Type="Self.Court" Multiplicity="0..1" />
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courts">
+        <PropertyRef Name="CourtId" />
+      </Principal>
+      <Dependent Role="PetitionDetails">
+        <PropertyRef Name="TrialCourt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CurrentPetitionResons_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="CurrentPetitionResons" Type="Self.CurrentPetitionReson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="CurrentPetitionResons">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CurrentPetitionResons_PetitionReasons">
+    <End Role="PetitionReasons" Type="Self.PetitionReason" Multiplicity="1" />
+    <End Role="CurrentPetitionResons" Type="Self.CurrentPetitionReson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionReasons">
+        <PropertyRef Name="PRId" />
+      </Principal>
+      <Dependent Role="CurrentPetitionResons">
+        <PropertyRef Name="RId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerHistoryInRehab_Deployments">
+    <End Role="Deployments" Type="Self.Deployment" Multiplicity="0..1" />
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deployments">
+        <PropertyRef Name="DeploymentId" />
+      </Principal>
+      <Dependent Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="DeploymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DisciplinaryActions_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="DisciplinaryActions" Type="Self.DisciplinaryAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="DisciplinaryActions">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_EducationLevels">
+    <End Role="EducationLevels" Type="Self.EducationLevel" Multiplicity="0..1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EducationLevels">
+        <PropertyRef Name="LevelOfEducationId" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="LevelOfEducation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerHistoryInRehab_EducationLevels">
+    <End Role="EducationLevels" Type="Self.EducationLevel" Multiplicity="0..1" />
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EducationLevels">
+        <PropertyRef Name="LevelOfEducationId" />
+      </Principal>
+      <Dependent Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="LevelOfEductation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerHistoryInRehab_EducationLevels1">
+    <End Role="EducationLevels" Type="Self.EducationLevel" Multiplicity="0..1" />
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EducationLevels">
+        <PropertyRef Name="LevelOfEducationId" />
+      </Principal>
+      <Dependent Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="LevelOfCurrentEducation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyDetails_NextOfKins">
+    <End Role="NextOfKins" Type="Self.NextOfKin" Multiplicity="0..1" />
+    <End Role="FamilyDetails" Type="Self.FamilyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NextOfKins">
+        <PropertyRef Name="NextOfKinID" />
+      </Principal>
+      <Dependent Role="FamilyDetails">
+        <PropertyRef Name="NextOfKinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyDetails_ProbatioAndAftercareServices">
+    <End Role="ProbatioAndAftercareServices" Type="Self.ProbatioAndAftercareService" Multiplicity="0..1" />
+    <End Role="FamilyDetails" Type="Self.FamilyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProbatioAndAftercareServices">
+        <PropertyRef Name="ProbationAftercareID" />
+      </Principal>
+      <Dependent Role="FamilyDetails">
+        <PropertyRef Name="ProbationAftercareID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyDetails_VitalStatus">
+    <End Role="VitalStatus" Type="Self.VitalStatu" Multiplicity="0..1" />
+    <End Role="FamilyDetails" Type="Self.FamilyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VitalStatus">
+        <PropertyRef Name="VSId" />
+      </Principal>
+      <Dependent Role="FamilyDetails">
+        <PropertyRef Name="FamilyMemberVitalStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_Genders">
+    <End Role="Genders" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="GenderId" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HearingSummary_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="1" />
+    <End Role="HearingSummary" Type="Self.HearingSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="HearingSummary">
+        <PropertyRef Name="PetitionDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterviewSummary_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="InterviewSummary" Type="Self.InterviewSummary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="InterviewSummary">
+        <PropertyRef Name="PetitionDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_SubCounties">
+    <End Role="SubCounties" Type="Self.SubCounty" Multiplicity="0..1" />
+    <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCounties">
+        <PropertyRef Name="SubCountyId" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="SubCountyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sublocation_Locations">
+    <End Role="Locations" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Sublocation" Type="Self.Sublocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="Sublocation">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_MaritalStatus">
+    <End Role="MaritalStatus" Type="Self.MaritalStatu" Multiplicity="0..1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaritalStatus">
+        <PropertyRef Name="MaritalId" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="MaritalStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_Nationality">
+    <End Role="Nationality" Type="Self.Nationality" Multiplicity="0..1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nationality">
+        <PropertyRef Name="NationalityId" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="Nationality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_NextOfKins">
+    <End Role="NextOfKins" Type="Self.NextOfKin" Multiplicity="0..1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NextOfKins">
+        <PropertyRef Name="NextOfKinID" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="NextOfKin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionDetails_PetitionerDetails">
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="1" />
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionerDetails">
+        <PropertyRef Name="PetitionerDetailId" />
+      </Principal>
+      <Dependent Role="PetitionDetails">
+        <PropertyRef Name="PetitionerDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionDetails_Reliefs">
+    <End Role="Reliefs" Type="Self.Relief" Multiplicity="0..1" />
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reliefs">
+        <PropertyRef Name="ReliefID" />
+      </Principal>
+      <Dependent Role="PetitionDetails">
+        <PropertyRef Name="ReliefsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreviousConvictions_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="PreviousConvictions" Type="Self.PreviousConviction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="PreviousConvictions">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerHistoryInRehab_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="PetitionDetailsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProbatioAndAftercareServices_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="1" />
+    <End Role="ProbatioAndAftercareServices" Type="Self.ProbatioAndAftercareService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="ProbatioAndAftercareServices">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Victims_PetitionDetails">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="Victims" Type="Self.Victim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="Victims">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Victims_PetitionDetails1">
+    <End Role="PetitionDetails" Type="Self.PetitionDetail" Multiplicity="0..1" />
+    <End Role="Victims" Type="Self.Victim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetails">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="Victims">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_Tribes">
+    <End Role="Tribes" Type="Self.Tribe" Multiplicity="0..1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tribes">
+        <PropertyRef Name="TribeId" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="EthnicityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonComments_PrisonerHistoryInRehab">
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="0..1" />
+    <End Role="PrisonComments" Type="Self.PrisonComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="PHId" />
+      </Principal>
+      <Dependent Role="PrisonComments">
+        <PropertyRef Name="PHId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerHistoryInRehab_Trainings">
+    <End Role="Trainings" Type="Self.Training" Multiplicity="0..1" />
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainings">
+        <PropertyRef Name="TrainingId" />
+      </Principal>
+      <Dependent Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="TrainingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerMedicalHistory_PrisonerHistoryInRehab">
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="0..1" />
+    <End Role="PrisonerMedicalHistory" Type="Self.PrisonerMedicalHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="PHId" />
+      </Principal>
+      <Dependent Role="PrisonerMedicalHistory">
+        <PropertyRef Name="PHId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerTrainings_PrisonerHistoryInRehab">
+    <End Role="PrisonerHistoryInRehab" Type="Self.PrisonerHistoryInRehab" Multiplicity="0..1" />
+    <End Role="PrisonerTrainings" Type="Self.PrisonerTraining" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrisonerHistoryInRehab">
+        <PropertyRef Name="PHId" />
+      </Principal>
+      <Dependent Role="PrisonerTrainings">
+        <PropertyRef Name="PHId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerTrainings_ProgressiveStages">
+    <End Role="ProgressiveStages" Type="Self.ProgressiveStage" Multiplicity="0..1" />
+    <End Role="PrisonerTrainings" Type="Self.PrisonerTraining" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgressiveStages">
+        <PropertyRef Name="PSId" />
+      </Principal>
+      <Dependent Role="PrisonerTrainings">
+        <PropertyRef Name="TrainingLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrisonerTrainings_Trainings">
+    <End Role="Trainings" Type="Self.Training" Multiplicity="0..1" />
+    <End Role="PrisonerTrainings" Type="Self.PrisonerTraining" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainings">
+        <PropertyRef Name="TrainingId" />
+      </Principal>
+      <Dependent Role="PrisonerTrainings">
+        <PropertyRef Name="TrainingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="PomacDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Achievements" EntityType="Self.Achievement" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Attributes" EntityType="Self.Attribute" />
+    <EntitySet Name="Coaccuseds" EntityType="Self.Coaccused" />
+    <EntitySet Name="Counsellings" EntityType="Self.Counselling" />
+    <EntitySet Name="Counties" EntityType="Self.County" />
+    <EntitySet Name="Counts" EntityType="Self.Count" />
+    <EntitySet Name="Courts" EntityType="Self.Court" />
+    <EntitySet Name="CurrentPetitionResons" EntityType="Self.CurrentPetitionReson" />
+    <EntitySet Name="Deployments" EntityType="Self.Deployment" />
+    <EntitySet Name="DisciplinaryActions" EntityType="Self.DisciplinaryAction" />
+    <EntitySet Name="EducationLevels" EntityType="Self.EducationLevel" />
+    <EntitySet Name="FamilyDetails" EntityType="Self.FamilyDetail" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="HearingSummaries" EntityType="Self.HearingSummary" />
+    <EntitySet Name="InterviewSummaries" EntityType="Self.InterviewSummary" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatu" />
+    <EntitySet Name="Nationalities" EntityType="Self.Nationality" />
+    <EntitySet Name="NextOfKins" EntityType="Self.NextOfKin" />
+    <EntitySet Name="PetitionDetails" EntityType="Self.PetitionDetail" />
+    <EntitySet Name="PetitionerDetails" EntityType="Self.PetitionerDetail" />
+    <EntitySet Name="PetitionReasons" EntityType="Self.PetitionReason" />
+    <EntitySet Name="PreviousConvictions" EntityType="Self.PreviousConviction" />
+    <EntitySet Name="PrisonComments" EntityType="Self.PrisonComment" />
+    <EntitySet Name="PrisonerHistoryInRehabs" EntityType="Self.PrisonerHistoryInRehab" />
+    <EntitySet Name="PrisonerMedicalHistories" EntityType="Self.PrisonerMedicalHistory" />
+    <EntitySet Name="PrisonerTrainings" EntityType="Self.PrisonerTraining" />
+    <EntitySet Name="Prisons" EntityType="Self.Prison" />
+    <EntitySet Name="ProbatioAndAftercareServices" EntityType="Self.ProbatioAndAftercareService" />
+    <EntitySet Name="ProgressiveStages" EntityType="Self.ProgressiveStage" />
+    <EntitySet Name="Reliefs" EntityType="Self.Relief" />
+    <EntitySet Name="Skills" EntityType="Self.Skill" />
+    <EntitySet Name="SubCounties" EntityType="Self.SubCounty" />
+    <EntitySet Name="Sublocations" EntityType="Self.Sublocation" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Trainings" EntityType="Self.Training" />
+    <EntitySet Name="Tribes" EntityType="Self.Tribe" />
+    <EntitySet Name="Victims" EntityType="Self.Victim" />
+    <EntitySet Name="VitalStatus" EntityType="Self.VitalStatu" />
+    <EntitySet Name="Recommendations" EntityType="Self.Recommendation" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HearingSummary_AspNetUsers" Association="Self.FK_HearingSummary_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="HearingSummary" EntitySet="HearingSummaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterviewSummary_AspNetUsers" Association="Self.FK_InterviewSummary_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="InterviewSummary" EntitySet="InterviewSummaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionDetails_AspNetUsers" Association="Self.FK_PetitionDetails_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_AspNetUsers" Association="Self.FK_PetitionerDetails_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerHistoryInRehab_AspNetUsers" Association="Self.FK_PrisonerHistoryInRehab_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerMedicalHistory_AspNetUsers" Association="Self.FK_PrisonerMedicalHistory_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PrisonerMedicalHistory" EntitySet="PrisonerMedicalHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerTrainings_AspNetUsers" Association="Self.FK_PrisonerTrainings_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PrisonerTrainings" EntitySet="PrisonerTrainings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProbatioAndAftercareServices_AspNetUsers" Association="Self.FK_ProbatioAndAftercareServices_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="ProbatioAndAftercareServices" EntitySet="ProbatioAndAftercareServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Victims_AspNetUsers" Association="Self.FK_Victims_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Victims" EntitySet="Victims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coaccused_PetitionDetails" Association="Self.FK_Coaccused_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="Coaccused" EntitySet="Coaccuseds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerHistoryInRehab_Counsellings" Association="Self.FK_PrisonerHistoryInRehab_Counsellings">
+      <End Role="Counsellings" EntitySet="Counsellings" />
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubCounties_Counties" Association="Self.FK_SubCounties_Counties">
+      <End Role="Counties" EntitySet="Counties" />
+      <End Role="SubCounties" EntitySet="SubCounties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Counts_PetitionDetails" Association="Self.FK_Counts_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="Counts" EntitySet="Counts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionDetails_Courts" Association="Self.FK_PetitionDetails_Courts">
+      <End Role="Courts" EntitySet="Courts" />
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrentPetitionResons_PetitionDetails" Association="Self.FK_CurrentPetitionResons_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="CurrentPetitionResons" EntitySet="CurrentPetitionResons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrentPetitionResons_PetitionReasons" Association="Self.FK_CurrentPetitionResons_PetitionReasons">
+      <End Role="PetitionReasons" EntitySet="PetitionReasons" />
+      <End Role="CurrentPetitionResons" EntitySet="CurrentPetitionResons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerHistoryInRehab_Deployments" Association="Self.FK_PrisonerHistoryInRehab_Deployments">
+      <End Role="Deployments" EntitySet="Deployments" />
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DisciplinaryActions_PetitionDetails" Association="Self.FK_DisciplinaryActions_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="DisciplinaryActions" EntitySet="DisciplinaryActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_EducationLevels" Association="Self.FK_PetitionerDetails_EducationLevels">
+      <End Role="EducationLevels" EntitySet="EducationLevels" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerHistoryInRehab_EducationLevels" Association="Self.FK_PrisonerHistoryInRehab_EducationLevels">
+      <End Role="EducationLevels" EntitySet="EducationLevels" />
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerHistoryInRehab_EducationLevels1" Association="Self.FK_PrisonerHistoryInRehab_EducationLevels1">
+      <End Role="EducationLevels" EntitySet="EducationLevels" />
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyDetails_NextOfKins" Association="Self.FK_FamilyDetails_NextOfKins">
+      <End Role="NextOfKins" EntitySet="NextOfKins" />
+      <End Role="FamilyDetails" EntitySet="FamilyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyDetails_ProbatioAndAftercareServices" Association="Self.FK_FamilyDetails_ProbatioAndAftercareServices">
+      <End Role="ProbatioAndAftercareServices" EntitySet="ProbatioAndAftercareServices" />
+      <End Role="FamilyDetails" EntitySet="FamilyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyDetails_VitalStatus" Association="Self.FK_FamilyDetails_VitalStatus">
+      <End Role="VitalStatus" EntitySet="VitalStatus" />
+      <End Role="FamilyDetails" EntitySet="FamilyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_Genders" Association="Self.FK_PetitionerDetails_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HearingSummary_PetitionDetails" Association="Self.FK_HearingSummary_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="HearingSummary" EntitySet="HearingSummaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterviewSummary_PetitionDetails" Association="Self.FK_InterviewSummary_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="InterviewSummary" EntitySet="InterviewSummaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_SubCounties" Association="Self.FK_Locations_SubCounties">
+      <End Role="SubCounties" EntitySet="SubCounties" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sublocation_Locations" Association="Self.FK_Sublocation_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Sublocation" EntitySet="Sublocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_MaritalStatus" Association="Self.FK_PetitionerDetails_MaritalStatus">
+      <End Role="MaritalStatus" EntitySet="MaritalStatus" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_Nationality" Association="Self.FK_PetitionerDetails_Nationality">
+      <End Role="Nationality" EntitySet="Nationalities" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_NextOfKins" Association="Self.FK_PetitionerDetails_NextOfKins">
+      <End Role="NextOfKins" EntitySet="NextOfKins" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionDetails_PetitionerDetails" Association="Self.FK_PetitionDetails_PetitionerDetails">
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionDetails_Reliefs" Association="Self.FK_PetitionDetails_Reliefs">
+      <End Role="Reliefs" EntitySet="Reliefs" />
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreviousConvictions_PetitionDetails" Association="Self.FK_PreviousConvictions_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="PreviousConvictions" EntitySet="PreviousConvictions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerHistoryInRehab_PetitionDetails" Association="Self.FK_PrisonerHistoryInRehab_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProbatioAndAftercareServices_PetitionDetails" Association="Self.FK_ProbatioAndAftercareServices_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="ProbatioAndAftercareServices" EntitySet="ProbatioAndAftercareServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Victims_PetitionDetails" Association="Self.FK_Victims_PetitionDetails">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="Victims" EntitySet="Victims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Victims_PetitionDetails1" Association="Self.FK_Victims_PetitionDetails1">
+      <End Role="PetitionDetails" EntitySet="PetitionDetails" />
+      <End Role="Victims" EntitySet="Victims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_Tribes" Association="Self.FK_PetitionerDetails_Tribes">
+      <End Role="Tribes" EntitySet="Tribes" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonComments_PrisonerHistoryInRehab" Association="Self.FK_PrisonComments_PrisonerHistoryInRehab">
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+      <End Role="PrisonComments" EntitySet="PrisonComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerHistoryInRehab_Trainings" Association="Self.FK_PrisonerHistoryInRehab_Trainings">
+      <End Role="Trainings" EntitySet="Trainings" />
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerMedicalHistory_PrisonerHistoryInRehab" Association="Self.FK_PrisonerMedicalHistory_PrisonerHistoryInRehab">
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+      <End Role="PrisonerMedicalHistory" EntitySet="PrisonerMedicalHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerTrainings_PrisonerHistoryInRehab" Association="Self.FK_PrisonerTrainings_PrisonerHistoryInRehab">
+      <End Role="PrisonerHistoryInRehab" EntitySet="PrisonerHistoryInRehabs" />
+      <End Role="PrisonerTrainings" EntitySet="PrisonerTrainings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerTrainings_ProgressiveStages" Association="Self.FK_PrisonerTrainings_ProgressiveStages">
+      <End Role="ProgressiveStages" EntitySet="ProgressiveStages" />
+      <End Role="PrisonerTrainings" EntitySet="PrisonerTrainings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrisonerTrainings_Trainings" Association="Self.FK_PrisonerTrainings_Trainings">
+      <End Role="Trainings" EntitySet="Trainings" />
+      <End Role="PrisonerTrainings" EntitySet="PrisonerTrainings" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Roles" EntityType="PomacDBModel.Role" />
+    <AssociationSet Name="FK_PetitionerDetails_Counties" Association="PomacDBModel.FK_PetitionerDetails_Counties">
+      <End Role="County" EntitySet="Counties" />
+      <End Role="PetitionerDetail" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_Locations" Association="PomacDBModel.FK_PetitionerDetails_Locations">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="PetitionerDetail" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_SubCounties" Association="PomacDBModel.FK_PetitionerDetails_SubCounties">
+      <End Role="SubCounty" EntitySet="SubCounties" />
+      <End Role="PetitionerDetail" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_Sublocation" Association="PomacDBModel.FK_PetitionerDetails_Sublocation">
+      <End Role="Sublocation" EntitySet="Sublocations" />
+      <End Role="PetitionerDetail" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <EntitySet Name="Appeals" EntityType="PomacDBModel.Appeal" />
+    <AssociationSet Name="FK_Appeals_PetitionDetails" Association="PomacDBModel.FK_Appeals_PetitionDetails">
+      <End Role="PetitionDetail" EntitySet="PetitionDetails" />
+      <End Role="Appeal" EntitySet="Appeals" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_PetitionerDetails_Counties">
+    <End Type="PomacDBModel.County" Role="County" Multiplicity="0..1" />
+    <End Type="PomacDBModel.PetitionerDetail" Role="PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="County">
+        <PropertyRef Name="CountyId" />
+      </Principal>
+      <Dependent Role="PetitionerDetail">
+        <PropertyRef Name="County" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_Locations">
+    <End Type="PomacDBModel.Location" Role="Location" Multiplicity="0..1" />
+    <End Type="PomacDBModel.PetitionerDetail" Role="PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="PetitionerDetail">
+        <PropertyRef Name="Location" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_SubCounties">
+    <End Type="PomacDBModel.SubCounty" Role="SubCounty" Multiplicity="0..1" />
+    <End Type="PomacDBModel.PetitionerDetail" Role="PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubCounty">
+        <PropertyRef Name="SubCountyId" />
+      </Principal>
+      <Dependent Role="PetitionerDetail">
+        <PropertyRef Name="SubCounty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PetitionerDetails_Sublocation">
+    <End Type="PomacDBModel.Sublocation" Role="Sublocation" Multiplicity="0..1" />
+    <End Type="PomacDBModel.PetitionerDetail" Role="PetitionerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sublocation">
+        <PropertyRef Name="SubLocationId" />
+      </Principal>
+      <Dependent Role="PetitionerDetail">
+        <PropertyRef Name="SubLocation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Appeal">
+    <Key>
+      <PropertyRef Name="AppealsID" />
+    </Key>
+    <Property Name="AppealsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PetitionDetailsID" Type="Int32" />
+    <Property Name="AppealNumber" Type="Int32" />
+    <Property Name="AppealCaseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Outcome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PetitionDetail" Relationship="PomacDBModel.FK_Appeals_PetitionDetails" FromRole="Appeal" ToRole="PetitionDetail" />
+  </EntityType>
+  <Association Name="FK_Appeals_PetitionDetails">
+    <End Type="PomacDBModel.PetitionDetail" Role="PetitionDetail" Multiplicity="0..1" />
+    <End Type="PomacDBModel.Appeal" Role="Appeal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PetitionDetail">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Principal>
+      <Dependent Role="Appeal">
+        <PropertyRef Name="PetitionDetailsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
