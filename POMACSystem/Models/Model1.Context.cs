@@ -13,10 +13,10 @@ namespace POMACSystem.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PomacDBEntities : DbContext
+    public partial class PomacDBEntities1 : DbContext
     {
-        public PomacDBEntities()
-            : base("name=PomacDBEntities")
+        public PomacDBEntities1()
+            : base("name=PomacDBEntities1")
         {
         }
     
@@ -27,6 +27,7 @@ namespace POMACSystem.Models
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Achievement> Achievements { get; set; }
+        public virtual DbSet<Appeal> Appeals { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
@@ -38,6 +39,7 @@ namespace POMACSystem.Models
         public virtual DbSet<Count> Counts { get; set; }
         public virtual DbSet<Court> Courts { get; set; }
         public virtual DbSet<CurrentPetitionReson> CurrentPetitionResons { get; set; }
+        public virtual DbSet<DateKnown> DateKnowns { get; set; }
         public virtual DbSet<Deployment> Deployments { get; set; }
         public virtual DbSet<DisciplinaryAction> DisciplinaryActions { get; set; }
         public virtual DbSet<EducationLevel> EducationLevels { get; set; }
@@ -69,7 +71,6 @@ namespace POMACSystem.Models
         public virtual DbSet<Tribe> Tribes { get; set; }
         public virtual DbSet<Victim> Victims { get; set; }
         public virtual DbSet<VitalStatu> VitalStatus { get; set; }
-        public virtual DbSet<Appeal> Appeals { get; set; }
         public virtual DbSet<Recommendation> Recommendations { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
     }

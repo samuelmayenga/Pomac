@@ -17,13 +17,13 @@ namespace POMACSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PetitionDetail()
         {
+            this.Appeals = new HashSet<Appeal>();
             this.Coaccuseds = new HashSet<Coaccused>();
             this.Counts = new HashSet<Count>();
             this.CurrentPetitionResons = new HashSet<CurrentPetitionReson>();
             this.DisciplinaryActions = new HashSet<DisciplinaryAction>();
             this.HearingSummaries = new HashSet<HearingSummary>();
             this.InterviewSummaries = new HashSet<InterviewSummary>();
-            this.Appeals = new HashSet<Appeal>();
             this.PreviousConvictions = new HashSet<PreviousConviction>();
             this.PrisonerHistoryInRehabs = new HashSet<PrisonerHistoryInRehab>();
             this.ProbatioAndAftercareServices = new HashSet<ProbatioAndAftercareService>();
@@ -65,6 +65,8 @@ namespace POMACSystem.Models
         public Nullable<System.DateTime> DateCreated { get; set; }
         public Nullable<System.DateTime> DateModified { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Appeal> Appeals { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Coaccused> Coaccuseds { get; set; }
@@ -79,8 +81,6 @@ namespace POMACSystem.Models
         public virtual ICollection<HearingSummary> HearingSummaries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InterviewSummary> InterviewSummaries { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Appeal> Appeals { get; set; }
         public virtual PetitionerDetail PetitionerDetail { get; set; }
         public virtual Relief Relief { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

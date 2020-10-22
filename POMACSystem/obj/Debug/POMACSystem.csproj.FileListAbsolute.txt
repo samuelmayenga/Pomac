@@ -108,3 +108,4 @@ C:\POMACSystem\POMACSystem\obj\Debug\POMACSystem.Migrations.addnewfields.resourc
 C:\POMACSystem\POMACSystem\obj\Debug\POMACSystem.Migrations.addstatus.resources
 C:\POMACSystem\POMACSystem\obj\Debug\POMACSystem.Migrations.userfield.resources
 C:\POMACSystem\POMACSystem\obj\Debug\POMACSystem.Migrations.add.resources
+C:\POMACSystem\POMACSystem\obj\Debug\POMACSystem.csprojAssemblyReference.cache

@@ -30,9 +30,6 @@
             @Html.DisplayNameFor(model => model.DateOfBirth)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateOfBirthKnown)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.IdNumber)
         </th>
         <th>
@@ -75,10 +72,19 @@
             @Html.DisplayNameFor(model => model.AspNetUser.RoleId)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.County1.CountyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateKnown.DateKnown1)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.EducationLevel.LevelOfEducation)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Gender1.GenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location1.LocationName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MaritalStatu.Marital)
@@ -90,19 +96,13 @@
             @Html.DisplayNameFor(model => model.NextOfKin1.Relation)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tribe.TribeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.County1.CountyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location1.LocationName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.SubCounty1.SubCountyName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Sublocation1.SubLocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tribe.TribeName)
         </th>
         <th></th>
     </tr>
@@ -126,9 +126,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirthKnown)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IdNumber)
@@ -173,10 +170,19 @@
             @Html.DisplayFor(modelItem => item.AspNetUser.RoleId)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.County1.CountyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateKnown.DateKnown1)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.EducationLevel.LevelOfEducation)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Gender1.GenderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location1.LocationName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MaritalStatu.Marital)
@@ -188,19 +194,13 @@
             @Html.DisplayFor(modelItem => item.NextOfKin1.Relation)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Tribe.TribeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.County1.CountyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location1.LocationName)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.SubCounty1.SubCountyName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Sublocation1.SubLocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tribe.TribeName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PetitionerDetailId }) |

@@ -17,8 +17,8 @@ namespace POMACSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Location()
         {
-            this.Sublocations = new HashSet<Sublocation>();
             this.PetitionerDetails = new HashSet<PetitionerDetail>();
+            this.Sublocations = new HashSet<Sublocation>();
         }
     
         public int LocationId { get; set; }
@@ -27,8 +27,8 @@ namespace POMACSystem.Models
     
         public virtual SubCounty SubCounty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sublocation> Sublocations { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PetitionerDetail> PetitionerDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sublocation> Sublocations { get; set; }
     }
 }

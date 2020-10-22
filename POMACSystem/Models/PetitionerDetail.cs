@@ -30,7 +30,7 @@ namespace POMACSystem.Models
         public Nullable<int> Gender { get; set; }
         public Nullable<int> MaritalStatus { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public Nullable<bool> DateOfBirthKnown { get; set; }
+        public Nullable<int> DateOfBirthKnown { get; set; }
         public Nullable<int> Nationality { get; set; }
         public string IdNumber { get; set; }
         public Nullable<int> County { get; set; }
@@ -54,17 +54,18 @@ namespace POMACSystem.Models
         public Nullable<System.DateTime> DateModified { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual County County1 { get; set; }
+        public virtual DateKnown DateKnown { get; set; }
         public virtual EducationLevel EducationLevel { get; set; }
         public virtual Gender Gender1 { get; set; }
+        public virtual Location Location1 { get; set; }
         public virtual MaritalStatu MaritalStatu { get; set; }
         public virtual Nationality Nationality1 { get; set; }
         public virtual NextOfKin NextOfKin1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PetitionDetail> PetitionDetails { get; set; }
-        public virtual Tribe Tribe { get; set; }
-        public virtual County County1 { get; set; }
-        public virtual Location Location1 { get; set; }
         public virtual SubCounty SubCounty1 { get; set; }
         public virtual Sublocation Sublocation1 { get; set; }
+        public virtual Tribe Tribe { get; set; }
     }
 }

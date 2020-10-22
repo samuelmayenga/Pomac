@@ -12,22 +12,18 @@ namespace POMACSystem.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class County
+    public partial class DateKnown
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public County()
+        public DateKnown()
         {
             this.PetitionerDetails = new HashSet<PetitionerDetail>();
-            this.SubCounties = new HashSet<SubCounty>();
         }
     
-        public int CountyId { get; set; }
-        public string CountyName { get; set; }
-        public string CountyCode { get; set; }
+        public int DateKnownID { get; set; }
+        public string DateKnown1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PetitionerDetail> PetitionerDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SubCounty> SubCounties { get; set; }
     }
 }

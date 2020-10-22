@@ -17,8 +17,6 @@
     <Property Name="AchievementId" Type="int" Nullable="false" />
     <Property Name="Achievement" Type="text" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'PomacDB.dbo.Appeals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Appeals">
     <Key>
       <PropertyRef Name="AppealsID" />
@@ -147,6 +145,13 @@ warning 6002: The table/view 'PomacDB.dbo.Appeals' does not have a primary key d
     <Property Name="RId" Type="int" Nullable="false" />
     <Property Name="Explanation" Type="text" />
     <Property Name="Attachment" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DateKnown">
+    <Key>
+      <PropertyRef Name="DateKnownID" />
+    </Key>
+    <Property Name="DateKnownID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateKnown" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Deployments">
     <Key>
@@ -326,7 +331,7 @@ warning 6002: The table/view 'PomacDB.dbo.Appeals' does not have a primary key d
     <Property Name="Gender" Type="int" />
     <Property Name="MaritalStatus" Type="int" />
     <Property Name="DateOfBirth" Type="date" />
-    <Property Name="DateOfBirthKnown" Type="bit" />
+    <Property Name="DateOfBirthKnown" Type="int" />
     <Property Name="Nationality" Type="int" />
     <Property Name="IdNumber" Type="varchar" MaxLength="50" />
     <Property Name="County" Type="int" />
@@ -521,7 +526,7 @@ warning 6002: The table/view 'PomacDB.dbo.Recommendation' does not have a primar
       <PropertyRef Name="ReliefID" />
     </Key>
     <Property Name="ReliefID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ReliefName" Type="varchar" MaxLength="50" />
+    <Property Name="ReliefName" Type="varchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'PomacDB.dbo.Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -902,6 +907,18 @@ warning 6002: The table/view 'PomacDB.dbo.Roles' does not have a primary key def
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PetitionerDetails_DateKnown">
+    <End Role="DateKnown" Type="Self.DateKnown" Multiplicity="0..1" />
+    <End Role="PetitionerDetails" Type="Self.PetitionerDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DateKnown">
+        <PropertyRef Name="DateKnownID" />
+      </Principal>
+      <Dependent Role="PetitionerDetails">
+        <PropertyRef Name="DateOfBirthKnown" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PetitionerDetails_EducationLevels">
     <End Role="EducationLevels" Type="Self.EducationLevels" Multiplicity="0..1" />
     <End Role="PetitionerDetails" Type="Self.PetitionerDetails" Multiplicity="*" />
@@ -1277,6 +1294,7 @@ warning 6002: The table/view 'PomacDB.dbo.Roles' does not have a primary key def
   <EntityContainer Name="PomacDBModelStoreContainer">
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Achievements" EntityType="Self.Achievements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Appeals" EntityType="Self.Appeals" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -1289,6 +1307,7 @@ warning 6002: The table/view 'PomacDB.dbo.Roles' does not have a primary key def
     <EntitySet Name="Counts" EntityType="Self.Counts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Courts" EntityType="Self.Courts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CurrentPetitionResons" EntityType="Self.CurrentPetitionResons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DateKnown" EntityType="Self.DateKnown" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Deployments" EntityType="Self.Deployments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DisciplinaryActions" EntityType="Self.DisciplinaryActions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EducationLevels" EntityType="Self.EducationLevels" Schema="dbo" store:Type="Tables" />
@@ -1320,15 +1339,6 @@ warning 6002: The table/view 'PomacDB.dbo.Roles' does not have a primary key def
     <EntitySet Name="Tribes" EntityType="Self.Tribes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Victims" EntityType="Self.Victims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VitalStatus" EntityType="Self.VitalStatus" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Appeals" EntityType="Self.Appeals" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Appeals].[AppealsID] AS [AppealsID], 
-    [Appeals].[PetitionDetailsID] AS [PetitionDetailsID], 
-    [Appeals].[AppealNumber] AS [AppealNumber], 
-    [Appeals].[AppealCaseNumber] AS [AppealCaseNumber], 
-    [Appeals].[Outcome] AS [Outcome]
-    FROM [dbo].[Appeals] AS [Appeals]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="Recommendation" EntityType="Self.Recommendation" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Recommendation].[RecommendationID] AS [RecommendationID], 
@@ -1439,6 +1449,10 @@ warning 6002: The table/view 'PomacDB.dbo.Roles' does not have a primary key def
     </AssociationSet>
     <AssociationSet Name="FK_PetitionerDetails_Counties" Association="Self.FK_PetitionerDetails_Counties">
       <End Role="Counties" EntitySet="Counties" />
+      <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PetitionerDetails_DateKnown" Association="Self.FK_PetitionerDetails_DateKnown">
+      <End Role="DateKnown" EntitySet="DateKnown" />
       <End Role="PetitionerDetails" EntitySet="PetitionerDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_PetitionerDetails_EducationLevels" Association="Self.FK_PetitionerDetails_EducationLevels">

@@ -1,43 +1,37 @@
 ﻿@model POMACSystem.Models.PetitionerDetail
 
 @{
-    ViewBag.Title = "Create";
+                /**/
+
+                ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>PetitionerDetail</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.PetitionerDetailId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PetitionerDetailId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PetitionerDetailId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.PetitionNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PetitionNumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PetitionNumber, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.PetitionerFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -96,12 +90,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DateOfBirthKnown, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateOfBirthKnown, "DateOfBirthKnown", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.DateOfBirthKnown)
-                    @Html.ValidationMessageFor(model => model.DateOfBirthKnown, "", new { @class = "text-danger" })
-                </div>
+                @Html.DropDownList("DateOfBirthKnown", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DateOfBirthKnown, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -124,7 +116,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.County, "County", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("County", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("County", ViewBag.Country as SelectList, "-- Please Select a Country  --", new { @class = "form-control" })  
                 @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -132,7 +124,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SubCounty, "SubCounty", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SubCounty", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("SubCounty", new SelectList(string.Empty, "Value", "Text"), "-- Please select a Sub County --", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SubCounty, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -140,7 +132,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Location, "Location", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Location", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Location", new SelectList(string.Empty, "Value", "Text"), "-- Please select a Location --", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -148,7 +140,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SubLocation, "SubLocation", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SubLocation", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("SubLocation", new SelectList(string.Empty, "Value", "Text"), "-- Please select a Sub-Location --", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SubLocation, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -285,6 +277,89 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //Country Dropdown Selectedchange event
+        $("#County").change(function () {
+            $("#SubCounty").empty();
+            $.ajax({
+                type: 'POST',
+                url: 'GetSubcountiesList', // Calling json method
+                dataType: 'json',
+                data: { id: $("#County").val() },
+                // Get Selected Country ID.
+                success: function (states) {
+                    $.each(states, function (i, state) {
+                        $("#SubCounty").append('<option value="' + state.Value + '">' +
+                            state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve subcounties.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //Country Dropdown Selectedchange event
+        $("#SubCounty").change(function () {
+            $("#Location").empty();
+            $.ajax({
+                type: 'POST',
+                url: ' GetLocationsList', // Calling json method
+                dataType: 'json',
+                data: { id: $("#SubCounty").val() },
+                // Get Selected Country ID.
+                success: function (states) {
+                    $.each(states, function (i, state) {
+                        $("#Location").append('<option value="' + state.Value + '">' +
+                            state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve locations.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //Country Dropdown Selectedchange event
+        $("#Location").change(function () {
+            $("#SubLocation").empty();
+            $.ajax({
+                type: 'POST',
+                url: ' GetSubLocationsList', // Calling json method
+                dataType: 'json',
+                data: { id: $("#Location").val() },
+                // Get Selected Country ID.
+                success: function (states) {
+                    $.each(states, function (i, state) {
+                        $("#SubLocation").append('<option value="' + state.Value + '">' +
+                            state.Text + '</option>');
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve locations.' + ex);
+                }
+            });
+            return false;
+        })
+    });
+</script>
